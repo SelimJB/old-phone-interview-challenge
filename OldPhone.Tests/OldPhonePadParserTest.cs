@@ -6,6 +6,21 @@ namespace OldPhoneTests;
 [TestFixture]
 public class PhonePadTests
 {
+	[TestCase("33#", true)]
+	[TestCase("227*#", true)]
+	[TestCase("4433555 555666#", true)]
+	[TestCase("8 88777444666*664#", true)]
+	[TestCase("", true)]
+	[TestCase("****###    ##***", true)]
+	[TestCase("   ", true)]
+	[TestCase("Nop", false)]
+	[TestCase("33#hey", false)]
+	[TestCase("44335a55 555666#", false)]
+	public void IsValidInput_ShouldReturnExpectedResult(string input, bool expectedResult)
+	{
+		Assert.That(OldPhonePadParser.IsValidInput(input), Is.EqualTo(expectedResult));
+	}
+
 	[TestCase("Nop")]
 	[TestCase("33#hey")]
 	[TestCase("44335a55 555666#")]
