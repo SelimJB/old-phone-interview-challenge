@@ -7,6 +7,13 @@ public static class OldPhonePadParser
 	private static readonly string validInputPattern = @"^[0-9 *#]*$";
 	private static readonly string specialCharacters = "0*#";
 
+	/// <summary>
+	/// Evaluates a given input string to determine its equivalent representation on an old-style phone pad. 
+	/// The function only allows numbers (0-9), spaces, *, and # as valid inputs. 
+	/// </summary>
+	/// <param name="input">The input string to be evaluated</param>
+	/// <returns>The equivalent representation of the input on an old-style phone pad</returns>
+	/// <exception cref="System.ArgumentException">Thrown if the input string contains invalid characters</exception>
 	public static String OldPhonePad(string input)
 	{
 		if (!IsValidInput(input))
@@ -15,11 +22,18 @@ public static class OldPhonePadParser
 		return new OldPhonePadInputEvaluator(Simplify(input)).Evaluate();
 	}
 
+	/// <summary>
+	/// Checks if a given string is a valid input.
+	/// Valid inputs are strings that consist solely of numbers (0-9), spaces, *, and #.
+	/// </summary>
 	public static bool IsValidInput(string input)
 	{
 		return Regex.IsMatch(input, validInputPattern);
 	}
 
+	/// <summary>
+	/// Cleans up the input string by removing hash (#) suffixes and simplifying white spaces. 
+	/// </summary>
 	public static string Simplify(string input)
 	{
 		return SimplifyWhiteSpace(RemoveHashSuffix(input));
