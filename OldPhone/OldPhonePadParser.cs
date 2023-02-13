@@ -1,6 +1,6 @@
 ﻿namespace OldPhone;
 
-public static class OldPhonePadParser
+public class OldPhonePadParser
 {
 	public static String OldPhonePad(string input)
 	{
