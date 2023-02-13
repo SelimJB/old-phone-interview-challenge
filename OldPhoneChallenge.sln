@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldPhone", "OldPhone\OldPho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldPhone.Tests", "OldPhone.Tests\OldPhone.Tests.csproj", "{68D706E1-365A-4415-868B-83B0B8FE759C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldPhoneEmulator", "OldPhoneEmulator\OldPhoneEmulator.csproj", "{27FABADE-B15C-4998-9FC4-747AEB1210F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{68D706E1-365A-4415-868B-83B0B8FE759C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68D706E1-365A-4415-868B-83B0B8FE759C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68D706E1-365A-4415-868B-83B0B8FE759C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FABADE-B15C-4998-9FC4-747AEB1210F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FABADE-B15C-4998-9FC4-747AEB1210F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FABADE-B15C-4998-9FC4-747AEB1210F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FABADE-B15C-4998-9FC4-747AEB1210F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
