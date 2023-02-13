@@ -21,6 +21,21 @@ public class PhonePadTests
 		Assert.That(OldPhonePadParser.IsValidInput(input), Is.EqualTo(expectedResult));
 	}
 
+	[TestCase("     ", "")]
+	[TestCase("     1     ", "1")]
+	[TestCase("* *", "**")]
+	[TestCase("1  1", "1 1")]
+	[TestCase("1 0", "10")]
+	[TestCase("1   3", "13")]
+	[TestCase("11 1 1 3 3 2 3 3 3 2 2 2", "11 1 13 323 3 32 2 2")]
+	[TestCase("1#  654 654", "1#")]
+	[TestCase("227*#", "227*#")]
+	[TestCase("   44 33 555 0   555 666  #  55 ", "44335550555666#")]
+	public void SimplifyInput_ValidInput_ReturnsExpectedOutput(string input, string expectedResult)
+	{
+		Assert.That(OldPhonePadParser.Simplify(input), Is.EqualTo(expectedResult));
+	}
+
 	[TestCase("Nop")]
 	[TestCase("33#hey")]
 	[TestCase("44335a55 555666#")]
