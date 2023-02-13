@@ -47,6 +47,7 @@ public class PhonePadTests
 	[TestCase("33#", "E")]
 	[TestCase("227*#", "B")]
 	[TestCase("4433555 555666#", "HELLO")]
+	[TestCase("8 88777444666*664#", "TURING")]
 	[TestCase("7777777", "R")]
 	[TestCase("45*********77777 77 7777777", "PQR")]
 	public void OldPhonePad_ValidInput_ReturnsExpectedOutput(string input, string expectedOutput)

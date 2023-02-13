@@ -9,7 +9,10 @@ public static class OldPhonePadParser
 
 	public static String OldPhonePad(string input)
 	{
-		throw new NotImplementedException();
+		if (!IsValidInput(input))
+			throw new ArgumentException("Invalid input. Only numbers (0-9), spaces, *, and # are allowed.");
+
+		return new OldPhonePadInputEvaluator(Simplify(input)).Evaluate();
 	}
 
 	public static bool IsValidInput(string input)
