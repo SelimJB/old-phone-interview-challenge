@@ -2,6 +2,8 @@
 
 static class Program
 {
+	private const float delayBeforeAutomaticCharacterValidation = 0.5f;
+
 	static void Main()
 	{
 		PrintInstructions();
@@ -45,24 +47,47 @@ static class Program
 		}
 	}
 
+	// Imperative programming is most likely not be the best approach to truly emulate the functioning of a telephone keypad,
+	// but since that is not the focus of this exercise and I just wanted to create a fun demo, this quick draft is totally ok
 	private static void EmulateOldPhonePadInput()
 	{
 		var input = string.Empty;
 		Console.WriteLine("Enter message :");
+		var previousKeyPressTime = DateTime.Now;
 
 		while (true)
 		{
 			var keyInfo = Console.ReadKey(true);
+			var currentKeyPressTime = DateTime.Now;
+			var deltaTime = currentKeyPressTime - previousKeyPressTime;
+
+			if (input != string.Empty &&
+			    deltaTime.TotalSeconds > delayBeforeAutomaticCharacterValidation &&
+			    input.Last() == keyInfo.KeyChar
+			   )
+			{
+				input += " ";
+			}
 
 			input += keyInfo.KeyChar;
+			previousKeyPressTime = currentKeyPressTime;
 
 			Console.Clear();
 			Console.WriteLine("Enter message :");
-			Console.WriteLine(OldPhonePadParser.OldPhonePad(input));
 
-			if (keyInfo.KeyChar == '#')
+			try
 			{
-				Console.WriteLine($"{input} --> {OldPhonePadParser.OldPhonePad(input)}");
+				Console.WriteLine(OldPhonePadParser.OldPhonePad(input));
+
+				if (keyInfo.KeyChar == '#')
+				{
+					Console.WriteLine($"{input} --> {OldPhonePadParser.OldPhonePad(input)}");
+					break;
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
 				break;
 			}
 
