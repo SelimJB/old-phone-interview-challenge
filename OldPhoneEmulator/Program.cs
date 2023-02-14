@@ -10,23 +10,20 @@ static class Program
 
 		while (true)
 		{
-			var input = Console.ReadLine();
+			var input = Console.ReadKey(true).KeyChar;
 			Console.Clear();
 
 			switch (input)
 			{
-				case "h":
-					PrintInstructions();
-					break;
-				case "1":
+				case '1':
 					ParseOldPhonePadInput();
 					break;
-				case "2":
+				case '2':
 					EmulateOldPhonePadInput();
 					break;
 			}
 
-			if (input == "q")
+			if (input == 'q')
 				break;
 
 			Clear();
@@ -110,7 +107,6 @@ static class Program
 		Console.WriteLine("Enter one of the following commands:");
 		Console.WriteLine("\t'1' : Parse Old Phone Pad Input");
 		Console.WriteLine("\t'2' : Emulate Old Phone Pad Input");
-		Console.WriteLine("\t'h' : Display these instructions");
 		Console.WriteLine("\t'q' : Quit");
 		Console.WriteLine();
 	}
